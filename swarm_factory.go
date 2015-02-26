@@ -1,8 +1,10 @@
 package main
 
 import (
+	"flag"
 	"fmt"
 	"net/http"
+	"strconv"
 	"time"
 
 	"github.com/go-martini/martini"
@@ -30,6 +32,10 @@ func AppEngine() *martini.ClassicMartini {
 }
 
 func main() {
+	var port int
+	flag.IntVar(&port, "p", 9001, "the port number")
+	flag.Parse()
+
 	m := AppEngine()
-	m.RunOnAddr(":9001")
+	m.RunOnAddr(":" + strconv.Itoa(port))
 }
