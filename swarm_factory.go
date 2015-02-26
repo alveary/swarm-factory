@@ -3,6 +3,7 @@ package main
 import (
 	"fmt"
 	"net/http"
+	"time"
 
 	"github.com/go-martini/martini"
 	"github.com/martini-contrib/binding"
@@ -19,7 +20,8 @@ func AppEngine() *martini.ClassicMartini {
 	m := martini.Classic()
 
 	m.Post("/", binding.Json(User{}), func(user User, resp http.ResponseWriter) {
-		fmt.Sprintf("%s : %s", user.Email, user.Password)
+		time.Sleep(10 * time.Second)
+		fmt.Println(fmt.Sprintf("%s : %s", user.Email, user.Password))
 
 		resp.WriteHeader(http.StatusCreated)
 	})
