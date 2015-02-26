@@ -1,4 +1,6 @@
-# registration
+# swarm-factory
+
+This component is responsible for creating swarm user entries.
 
 ![Travis-CI](https://travis-ci.org/mechanoid/registration.svg)
 
