@@ -1,5 +1,5 @@
 {
-	"ImportPath": "github.com/alveary/swarm-factory",
+	"ImportPath": "github.com/alveary/user-factory",
 	"GoVersion": "go1.4.1",
 	"Packages": [
 		"./..."

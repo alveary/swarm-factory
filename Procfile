@@ -1,1 +1,1 @@
-web: ./swarm-factory -p=$PORT
+web: ./user-factory -p=$PORT
