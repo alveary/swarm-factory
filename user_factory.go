@@ -7,6 +7,7 @@ import (
 	"strconv"
 	"time"
 
+	"github.com/alveary/overseer/announce"
 	"github.com/go-martini/martini"
 	"github.com/martini-contrib/binding"
 )
@@ -21,6 +22,10 @@ type User struct {
 func AppEngine() *martini.ClassicMartini {
 	m := martini.Classic()
 
+	m.Head("/alive", func(resp http.ResponseWriter) {
+		resp.WriteHeader(http.StatusOK)
+	})
+
 	m.Post("/", binding.Json(User{}), func(user User, resp http.ResponseWriter) {
 		time.Sleep(10 * time.Second)
 		fmt.Println(fmt.Sprintf("%s : %s", user.Email, user.Password))
@@ -29,6 +34,10 @@ func AppEngine() *martini.ClassicMartini {
 	})
 
 	return m
+}
+
+func init() {
+	announce.NewService("user-factory")
 }
 
 func main() {
