@@ -5,7 +5,6 @@ import (
 	"fmt"
 	"net/http"
 	"strconv"
-	"time"
 
 	"github.com/alveary/overseer/announce"
 	"github.com/go-martini/martini"
@@ -27,7 +26,6 @@ func AppEngine() *martini.ClassicMartini {
 	})
 
 	m.Post("/", binding.Json(User{}), func(user User, resp http.ResponseWriter) {
-		time.Sleep(10 * time.Second)
 		fmt.Println(fmt.Sprintf("%s : %s", user.Email, user.Password))
 
 		resp.WriteHeader(http.StatusCreated)
