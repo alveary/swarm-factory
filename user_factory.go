@@ -6,7 +6,7 @@ import (
 	"net/http"
 	"strconv"
 
-	"github.com/alveary/overseer/announce"
+	"github.com/alveary/overseer-client/announce"
 	"github.com/go-martini/martini"
 	"github.com/martini-contrib/binding"
 )
