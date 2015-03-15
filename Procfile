@@ -1,1 +1,1 @@
-web: ./user-factory -p=$PORT
+web: user-factory
